@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript">
+    $(document).ready(function (){
+        $(location).attr('href');
+        var pathname = window.location.pathname;
+        if(pathname != "/") {
+            $('.crowInfo').append('<a href="/">View all crows</a>');
+        }
+    });
+    </script>
+</head>
+<body>
+    <div class="parcelDB">
+        <% if(typeof crows != 'undefined'){ %>
+            <h1>Crow(s) from DB</h1>
+            <% for(var x in crows) { %>
+                <div class="crowInfo">
+                    <b>ID: </b><%= crows[x]._id %><br />
+                    <b>Name: </b><%= crows[x].name %><br />
+                    <b>Age: </b><%= crows[x].age %><br />
+                    <a href="/crows/<%= crows[x].id %>/edit">Edit Info</a>
+                </div>
+                <hr />
+                <% }} else { %>
+                    <h1>No Crows found</h1>
+                    <% } %>
+                    <p>
+                        Enter new crow Information <a href="/crows/new">here</a>
+                    </p>
+                    <br />
+                </div>
+            </body>
+            </html>

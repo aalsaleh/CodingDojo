@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript">
+    $(document).ready(function (){});
+    </script>
+    <style>
+    form {
+        display: inline;
+    }
+    .button.danger:hover,
+    .button.danger:focus,
+    .button.danger:active {
+        color: #fff;
+        background-color: #dc5f59;
+    }
+    </style>
+</head>
+<body>
+    <div class="crowForm">
+        <h1>Edit Crow Information for <%= crows.name %></h1>
+        <form action="/crows/<%= crows.id %>" method="post" autocomplete="off">
+            Name: <input type="text" value="<%= crows.name %>" name="name"/>
+            Age: <input type="text" value="<%= crows.age %>" name="age" />
+            <input type="submit" value="edit crow" />
+        </form>
+        <form action ="/crows/<%= crows.id %>/destroy" method="post" autocomplete="off">
+            <input type="submit" class="button danger" value="destroy crow" />
+        </form>
+    </div>
+</body>
+</html>
